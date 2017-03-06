@@ -57,5 +57,36 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="Schema-bound Objects" />
+    <Folder Include="Scripts" />
+    <Folder Include="Security Objects" />
+    <Folder Include="Storage" />
+    <Folder Include="Scripts\Record Changes" />
+    <Folder Include="Scripts\Run Once" />
+    <Folder Include="Security Objects\Roles" />
+    <Folder Include="Security Objects\Schemas" />
+    <Folder Include="Security Objects\Users" />
+    <Folder Include="Publish Profiles" />
+    <Folder Include="Security Objects\Encryption" />
+  </ItemGroup>
+  <ItemGroup>
+    <PreDeploy Include="Scripts\PreDeploymentMain.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\PostDeploymentMain.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Security Objects\Users\SampleWindowsAuthenticatedUser_PostDeploy.sql" />
+    <None Include="Security Objects\Users\SampleWindowsAuthenticatedUser_PreDeploy.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="SampleAuthenticatedWindowsAuthenticatedUser">
+      <DefaultValue>DOMAIN\UserName</DefaultValue>
+      <Value>$(SqlCmdVar__1)</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Storage\ReportsEngine_Index File.sql" />
+    <Build Include="Storage\ReportsEngine_Index.sql" />
   </ItemGroup>
 </Project>
